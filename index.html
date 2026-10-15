@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a Data Science and CSE (AI/ML) student at IIT Madras">
+    <title>Portfolio | Data Science & AI/ML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        header .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        header .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        header .contact-info a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-left: 4px solid #2563eb;
+        }
+
+        .education-card h3 {
+            font-size: 1.15rem;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .education-card .institution {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-card .duration {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .education-card ul {
+            list-style: none;
+        }
+
+        .education-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .education-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+        }
+
+        .contact-section {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-section h2::after {
+            background: #60a5fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        .contact-card p {
+            opacity: 0.9;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-card a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .projects-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p class="subtitle">Data Science & AI/ML Student at IIT Madras</p>
+            <div class="contact-info">
+                <a href="mailto:<!--email_off-->24f3000925@ds.study.iitm.ac.in<!--/email_off-->"><!--email_off-->24f3000925@ds.study.iitm.ac.in<!--/email_off--></a>
+                <span>GitHub: <a href="https://github.com" target="_blank" rel="noopener">github.com/username</a></span>
+                <span>LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/username</a></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">C++</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Data Structures & Algorithms</div>
+                <div class="skill-tag">Machine Learning</div>
+                <div class="skill-tag">Deep Learning</div>
+                <div class="skill-tag">PyTorch</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">SQL</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Mini DBMS in C++ using B+ Tree</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">B+ Tree</span>
+                        <span class="tech-tag">Database Systems</span>
+                    </div>
+                    <p>Implemented a mini Database Management System from scratch using C++, featuring a B+ tree index structure for efficient data storage and retrieval. Supports basic CRUD operations, indexing, and query execution with O(log n) complexity for search, insert, and delete operations.</p>
+                </article>
+
+                <article class="project-card">
+                    <h3>Flappy Bird AI using PyTorch and Deep Q-Learning</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Deep Q-Learning</span>
+                        <span class="tech-tag">Reinforcement Learning</span>
+                    </div>
+                    <p>Developed an AI agent that learns to play Flappy Bird using Deep Q-Networks (DQN) with PyTorch. Implemented experience replay, target networks, and epsilon-greedy exploration. The agent achieves superhuman performance after training on thousands of episodes.</p>
+                </article>
+
+                <article class="project-card">
+                    <h3>Digital Behaviour Analysis using Python and Pandas</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                    <p>Performed comprehensive digital behaviour analysis on user interaction datasets using Python and Pandas. Built data pipelines for cleaning, transformation, and feature engineering. Generated actionable insights through statistical analysis and visualizations to understand user engagement patterns.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <article class="education-card">
+                    <h3>BS in Data Science</h3>
+                    <p class="institution">Indian Institute of Technology Madras</p>
+                    <p class="duration">2024 - Present</p>
+                    <ul>
+                        <li>Core: Statistics, Probability, Linear Algebra, Optimization</li>
+                        <li>Machine Learning, Deep Learning, Data Mining</li>
+                        <li>Big Data Analytics, Cloud Computing</li>
+                        <li>Capstone projects in applied Data Science</li>
+                    </ul>
+                </article>
+
+                <article class="education-card">
+                    <h3>B.Tech in Computer Science & Engineering (AI/ML)</h3>
+                    <p class="institution">Indian Institute of Technology Madras</p>
+                    <p class="duration">2024 - Present</p>
+                    <ul>
+                        <li>Core: Data Structures, Algorithms, Operating Systems, Computer Networks</li>
+                        <li>Artificial Intelligence, Machine Learning, Computer Vision</li>
+                        <li>Natural Language Processing, Reinforcement Learning</li>
+                        <li>Software Engineering, Database Systems</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p><a href="mailto:<!--email_off-->24f3000925@ds.study.iitm.ac.in<!--/email_off-->"><!--email_off-->24f3000925@ds.study.iitm.ac.in<!--/email_off--></a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com" target="_blank" rel="noopener">github.com/username</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/username</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Portfolio. Built with HTML & CSS.</p>
+    </footer>
+</body>
+</html>
